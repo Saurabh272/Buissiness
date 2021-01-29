@@ -1,0 +1,275 @@
+<%- include("../partials/header") %>
+
+<style>
+      table {
+      border-collapse: collapse;
+      width: 100%;
+	  padding:20px;  
+      }
+      th, td {
+      text-align: left;
+      padding: 10px;
+      }
+      tr:nth-child(even) {background-color: #e6e6e6;}
+      tr:nth-child(odd) {background-color: #d9d9d9;}
+
+	#input {
+		width: 50%
+	}
+
+	.hell {
+		background-color:#e6e6e6;
+		padding-left:10px;
+	}
+    </style>
+
+
+<div class="container" >
+    <div class="row">
+		  
+		<h1 style="text-align: center"><strong>Pratap Enterprises</strong></h1>
+        <h2 style="text-align: center">Edit Detail</h2>
+        <!-- <div style="width: 30%; margin: 25px auto;"> -->
+            <form action="/vehicles/<%= vehicle_id %>/details/<%= detail._id %>?_method=PUT" method="POST">
+				<table>
+					<!-- <tr>
+					<th>Name of Supplier</th>
+					<th><input class="form-control" type="text" name="detail[text]" placeholder="Name of Supplier"></th>
+					</tr> -->
+					<tr>
+					<th>Name of Driver</th>
+					<th><input class="form-control" type="text" name="detail[driver]" value="<%= detail.driver %>"></th>
+					</tr>
+					<tr>
+					<th>Today's Route</th>
+						<th><input class="form-control" type="text" name="detail[place]" value="<%= detail.place %>"></th>
+					</tr>
+					<tr>
+					<th>Total Loadout (Morning)</th>
+					<th><input class="form-control" type="text" name="detail[loadout]" value="<%= detail.loadout %>"></th>
+					</tr>
+				</table>
+				
+		<div class="hell">				 
+<label>200ml(All Pack):<input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input style="padding-right:30px" type="text" name="input1" id="input1" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input2" id="input2" onkeyup="calc();" value="" placeholder="Rate"> </label> 
+        Total: <input type="text" name="detail[output3]" id="output3" value="<%= detail.output3 %>" > <br>
+   
+				
+
+<label>750ml(All Pack): <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input4" id="input4" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input5" id="input5" onkeyup="calc();" value="" placeholder="Rate"> </label>
+Total: <input type="text" name="detail[output6]" id="output6" value="<%= detail.output6 %>"> <br>
+					
+<label>1.25l(All Pack): <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input  type="text" name="input7" id="input7" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input8" id="input8" onkeyup="calc();" value="" placeholder="Rate"> </label>
+Total: <input type="text" name="detail[output9]" id="output9" value="<%= detail.output9 %>"> <br>
+					
+<label>2.25l(All Pack): <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input10" id="input10" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input11" id="input11" onkeyup="calc();" value="" placeholder="Rate"> </label>
+Total: <input type="text" name="detail[output12]" id="output12" value="<%= detail.output12 %>"> <br>					
+
+<label>250ml(MRP:20): <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input13" id="input13" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input14" id="input14" onkeyup="calc();" value="" placeholder="Rate"> </label>
+Total: <input type="text" name="detail[output15]" id="output15" value="<%= detail.output15 %>"> <br>
+					
+<label>250ml(MRP:15): <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input16" id="input16" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input17" id="input17" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output18]" id="output18" value="<%= detail.output18 %>"> <br>
+					
+<label>250ml Maaza: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input19" id="input19" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input20" id="input20" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output21]" id="output21" value="<%= detail.output21 %>"> <br>	
+					
+<label>600ml Maaza: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input22" id="input22" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input23" id="input23" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output24]" id="output24" value="<%= detail.output24 %>"> <br>
+					
+<label>1.75l Maaza : <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input25" id="input25" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input26" id="input26" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output27]" id="output27" value="<%= detail.output27 %>"> <br>
+					
+<label>150ml/125ml(₹10): <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input28" id="input28" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input29" id="input29" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output30]" id="output30" value="<%= detail.output30 %>"> <br>
+					
+<label>Can (180ml): <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input31" id="input31" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input32" id="input32" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output33]" id="output33" value="<%= detail.output33 %>"> <br>
+
+<label>Can (300ml):<input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input34" id="input34" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input35" id="input35" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output36]" id="output36" value="<%= detail.output36 %>"> <br>
+
+<label>Kinley Water 1l: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input37" id="input37" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input38" id="input38" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output39]" id="output39" value="<%= detail.output39 %>"> <br>
+					
+<label>Kinley Water 2l: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input40" id="input40" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input41" id="input41" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output42]" id="output42" value="<%= detail.output42 %>"> <br>
+					
+<label>Kinley Water 500ml: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input43" id="input43" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input44" id="input44" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output45]" id="output45" value="<%= detail.output45 %>"> <br>
+					
+<label>Soda 750ml: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input46" id="input46" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input47" id="input47" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output48]" id="output48" value="<%= detail.output48 %>"> <br>
+					
+<label>Monster can 300ml: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input49" id="input49" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input50" id="input50" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output51]" id="output51" value="<%= detail.output51 %>"> <br>
+					
+<label>Smart water 750ml: <input type="text" placeholder="Loadout"> <input type="text" placeholder="Return"> <input type="text" name="input52" id="input52" onkeyup="calc();" value="" placeholder="Quantity"></label> <label><h1>*</h1></label>
+<label><input type="text" name="input53" id="input53" onkeyup="calc();" value="" placeholder="Rate"> </label>					
+Total: <input type="text" name="detail[output54]" id="output54" value="<%= detail.output54 %>"> <br>			
+
+				</div>
+			
+			 <table>
+				<tr>
+				<th>Grand Total: </th>
+					<th> <input type="text" name="detail[finalOutput]" id="finalOutput" value="<%= detail.finalOutput %>" onkeyup="sum();"   /><br> <br></th>
+				</tr>
+    
+      </table>
+			<div class="hell"> 
+	
+				<div class="form-group">
+                    <button class="btn btn-lg btn-primary mt-3">Submit!</button>
+                </div>
+		</div>
+	<script>
+		// var quantityArray = [input1, input4,  input7, input10, input13, input16, input19, input22, input25, input28, input31, input34, input37, input40, input43, input46,input49, input52]
+		//  var rateArray = [input2,input5,input8,input11,input14,input17,input20,input23,input26,input29,input32,input35,input38,input41,input44,input47,input50,input53]
+		 
+		//  var textValueArray = [textValue1, textValue2, textValue3,textValue4,textValue5,textValue6,textValue7,textValue8,textValue9,textValue10,textValue11,textValue12,textValue13,textValue14,textValue15,textValue16,textValue17,textValue18,textValue19,textValue20,textValue21,textValue22,textValue23,textValue24,textValue25,textValue26,textValue27,textValue28,textValue29,textValue30,textValue31,textValue32,textValue33,textValue34,textValue35,textValue36]
+
+function calc() {   
+	//  var i; var j; var k;  var l;
+	// for( i = 0, j = 0, k=1, l=1; i <36; i+2 ){
+		
+	// textValueArray[i] = quantityArray[j];
+	//  j = j+2;
+	// textValueArray[k] = rateArray[l];
+	// k = k+2;
+	//  l = l+2;
+	// }
+	
+    var textValue1  = document.getElementById('input1').value;
+    var textValue2  = document.getElementById('input2').value;
+    var textValue3  = document.getElementById('input4').value;
+    var textValue4  = document.getElementById('input5').value;
+    var textValue5  = document.getElementById('input7').value;
+    var textValue6  = document.getElementById('input8').value;
+	var textValue7  = document.getElementById('input10').value;
+    var textValue8  = document.getElementById('input11').value;
+	var textValue9  = document.getElementById('input13').value;
+    var textValue10 = document.getElementById('input14').value;
+	var textValue11 = document.getElementById('input16').value;
+    var textValue12 = document.getElementById('input17').value;
+    var textValue13 = document.getElementById('input19').value;
+    var textValue14 = document.getElementById('input20').value;
+	var textValue15 = document.getElementById('input22').value;
+    var textValue16 = document.getElementById('input23').value;
+	var textValue17 = document.getElementById('input25').value;
+    var textValue18 = document.getElementById('input26').value;
+	var textValue19 = document.getElementById('input28').value;
+    var textValue20 = document.getElementById('input29').value;
+	var textValue21 = document.getElementById('input31').value;
+    var textValue22 = document.getElementById('input32').value;
+	var textValue23 = document.getElementById('input34').value;
+    var textValue24 = document.getElementById('input35').value;
+	var textValue25 = document.getElementById('input37').value;
+    var textValue26 = document.getElementById('input38').value;
+	var textValue27 = document.getElementById('input40').value;
+    var textValue28 = document.getElementById('input41').value;
+    var textValue29 = document.getElementById('input43').value;
+    var textValue30 = document.getElementById('input44').value;
+	var textValue31 = document.getElementById('input46').value;
+    var textValue32 = document.getElementById('input47').value;
+	var textValue33 = document.getElementById('input49').value;
+    var textValue34 = document.getElementById('input50').value;
+	var textValue35 = document.getElementById('input52').value;
+    var textValue36 = document.getElementById('input53').value;   
+	
+    document.getElementById('output3').value = textValue1*textValue2
+	
+    document.getElementById('output6').value = textValue3*textValue4
+	
+    document.getElementById('output9').value = textValue5*textValue6
+	
+	document.getElementById('output12').value = textValue7*textValue8
+	
+	document.getElementById('output15').value = textValue9*textValue10
+	
+	document.getElementById('output18').value = textValue11*textValue12
+	
+	document.getElementById('output21').value = textValue13*textValue14
+	
+	document.getElementById('output24').value = textValue15*textValue16
+	
+	document.getElementById('output27').value = textValue17*textValue18
+	
+	document.getElementById('output30').value = textValue19*textValue20
+	
+	document.getElementById('output33').value = textValue21*textValue22
+	
+	document.getElementById('output36').value = textValue23*textValue24
+	
+	document.getElementById('output39').value = textValue25*textValue26
+	
+	document.getElementById('output42').value = textValue27*textValue28
+	
+	document.getElementById('output45').value = textValue29*textValue30
+	
+	document.getElementById('output48').value = textValue31*textValue32
+	
+	document.getElementById('output51').value = textValue33*textValue34
+	
+	document.getElementById('output54').value = textValue35*textValue36
+      
+}
+     
+ function sum()
+{
+	  
+  var g = document.getElementById('finalOutput').value || 0;
+  
+  var h = document.getElementById('output3').value || 0;
+  var i = document.getElementById('output6').value || 0; 
+  var j = document.getElementById('output9').value || 0;
+  var k = document.getElementById('output12').value || 0; 
+  var l = document.getElementById('output15').value || 0;
+  var m = document.getElementById('output18').value || 0;	
+  var n = document.getElementById('output21').value || 0;
+  var o = document.getElementById('output24').value || 0;
+  var p = document.getElementById('output27').value || 0;
+  var q = document.getElementById('output30').value || 0;
+  var r = document.getElementById('output33').value || 0;
+  var s = document.getElementById('output36').value || 0;
+  var t = document.getElementById('output39').value || 0;
+  var u = document.getElementById('output42').value || 0;
+  var v = document.getElementById('output45').value || 0;
+  var w = document.getElementById('output48').value || 0;
+  var x = document.getElementById('output51').value || 0;
+  var y = document.getElementById('output54').value || 0;	
+		
+ var  outputArray = [ h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y];
+ 
+	 var ini;
+	 var sumAdd = 0;
+	 for(ini = 0; ini <= 17; ini++) {
+		
+	 	sumAdd = sumAdd +  parseInt(outputArray[ini]);
+	 }  
+  
+  document.getElementById('finalOutput').value= sumAdd;	
+}       
+	  </script>							
+	</form>
+		<a href="/vehicles">Go Back</a>
+
+
+<%- include("../partials/footer") %>

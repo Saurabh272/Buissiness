@@ -1,0 +1,791 @@
+<html>
+    <head>
+        <title>Business</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+    <body>
+
+<style>
+      table {
+      border-collapse: collapse;
+      width: 100%;
+	  padding:20px;  
+      }
+      th, td {
+      text-align: left;
+      padding: 10px;
+      }
+      tr:nth-child(even) {background-color: #e6e6e6;}
+      tr:nth-child(odd) {background-color: #d9d9d9;}
+
+
+
+	.hell {
+		background-color:#e6e6e6;
+		padding-left:10px;
+	}
+	
+	.product1 {
+		padding-right: 25px;
+	}
+	
+	.product2 {
+		padding-right: 33px;
+	}
+	
+	.product3 {
+		padding-right: 42px;
+	}
+	
+	.product4 {
+		padding-right: 50px;
+	}
+	
+	.product5 {
+		padding-right: 66px;
+	}
+	
+	.product6 {
+		padding-right: 58px;
+	}
+	
+	.product7 {
+		padding-right: 89px;
+	}
+	
+	.product8 {
+		padding-right: 61px;
+	}
+	
+	.product9 {
+		padding-right: 36px;
+	}
+	
+	.product10 {
+		padding-right: 42px;
+	}
+	
+	.product11 {
+		padding-right: 44px;
+	}
+	
+		.scheme1 {
+		padding-right: 280px;
+	}
+	
+		.expense1 {
+		padding-right: 312px;
+	}
+	
+			.due1 {
+		padding-right: 281px;
+	}
+	
+	.deposit1 {
+		padding-right: 280px;
+	}
+	
+	.grand {
+		padding-right: 40px;
+	}
+	
+	.quantity {
+		padding-right: 133px;
+	}
+	
+	nav {
+  float: right;
+  width: 30%;
+  height: 600pxpx; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 900px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+    </style>
+
+
+<div class="container" >
+    <div class="row">
+		  
+		<h1 style="text-align: center"><strong>Pratap Enterprises</strong></h1>
+        <h2 style="text-align: center">Vehicle Number: <%= vehicle.name %></h2>
+        <!-- <div style="width: 30%; margin: 25px auto;"> -->
+            <form action="/vehicles/<%= vehicle._id %>/details" method="POST">
+				<table>
+					<!-- <tr>
+					<th>Name of Supplier</th>
+					<th><input class="form-control" type="text" name="detail[text]" placeholder="Name of Supplier"></th>
+					</tr> -->
+					<tr>
+					<th>Name of Driver</th>
+					<th><input class="form-control" type="text" name="detail[driver]" placeholder="Name of Driver"></th>
+					</tr>
+					<tr>
+					<th>Name Of Loader</th>
+					<th><input class="form-control" type="text" name="detail[loader]" placeholder="Name Of Loader"></th>
+					</tr>
+					<tr>
+					<tr>
+					<th>Today's Route</th>
+						<th><input class="form-control" type="text" name="detail[place]" placeholder="Place Of Delivery"></th>
+					</tr>
+				</table>
+				
+						<section>
+<nav>
+	<table>
+		<h3>
+			Payment Due
+		</h3>
+		<tr>
+			<th>Name</th>
+			<th>Amount</th>
+		</tr>
+		 <tr>
+    <td><input type="text" size="18"></td>
+    <td><input type="text" size="4"></td>
+  </tr>
+			 <tr>
+    <td><input type="text" size="18"></td>
+    <td><input type="text" size="4"></td>
+  </tr>
+			 <tr>
+    <td><input type="text" size="18"></td>
+    <td><input type="text" size="4"></td>
+  </tr>
+		<tr>
+			<td>Total:</td>
+		    <td><input type="text" size="4"></td>
+		</tr>
+	</table>
+	
+	<table>
+		<h3>
+			Cash Payment
+		</h3>
+		<tr>
+			<th>Name</th>
+			<th>Amount</th>
+		</tr>
+		 <tr>
+    <td><input type="text" size="18"></td>
+    <td><input type="text" size="4"></td>
+  </tr>
+			 <tr>
+    <td><input type="text" size="18"></td>
+    <td><input type="text" size="4"></td>
+  </tr>
+			 <tr>
+    <td><input type="text" size="18"></td>
+    <td><input type="text" size="4"></td>
+  </tr>
+		<tr>
+			<td>Total:</td>
+		    <td><input type="text" size="4"></td>
+		</tr>
+	</table>
+	
+	<table>
+		<h3>Note:</h3>
+		<textarea rows="6" cols="40" name="comment" form="usrform" placeholder="Enter text here..."></textarea>
+		<textarea rows="6" cols="40" name="comment" form="usrform" placeholder="Enter text here...">	
+        </textarea>
+	</table>
+ 
+ </nav>
+  
+  <article>
+		<div class="hell">
+<label><strong class="product1">200ml(All Pack):</strong><input type="text" id="loadout1" value="" placeholder="Loadout"  size="8"> <input type="text" id="returned1" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output3]" id="output3"  onkeyup="calc();"  size="15">     RGB Empty: <input type="text" name="detail[empty]" size="8"><br>
+			
+   
+			<label><strong class="product1">750ml(All Pack):</strong><input type="text" id="loadout2" value="" placeholder="Loadout" size="8"> <input type="text" id="returned2" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output6]" id="output6"  onkeyup="calc();" size="15"><br>
+
+			<label><strong class="product2">1.25l(All Pack):</strong><input type="text" id="loadout3" value="" placeholder="Loadout" size="8"> <input type="text" id="returned3" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output9]" id="output9"  onkeyup="calc();" size="15"><br>
+
+			<label><strong class="product2">2.25l(All Pack):</strong><input type="text" id="loadout4" value="" placeholder="Loadout" size="8"> <input type="text" id="returned4" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output12]" id="output12"  onkeyup="calc();"  size="15"><br>		
+
+			<label><strong class="product2">250ml(MRP20):</strong><input type="text" id="loadout5" value="" placeholder="Loadout" size="8"> <input type="text" id="returned5" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output15]" id="output15"  onkeyup="calc();" size="15"><br>			
+
+			<label><strong class="product2">250ml(MRP15):</strong><input type="text" id="loadout6" value="" placeholder="Loadout" size="8"> <input type="text" id="returned6" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output18]" id="output18"  onkeyup="calc();" size="15"><br>			
+		
+			<label><strong class="product3">250ml Maaza:</strong><input type="text" id="loadout7" value="" placeholder="Loadout" size="8"> <input type="text" id="returned7" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output21]" id="output21"  onkeyup="calc();" size="15"><br>
+	
+			<label><strong class="product3">600ml Maaza:</strong><input type="text" id="loadout8" value="" placeholder="Loadout" size="8"> <input type="text" id="returned8" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output24]" id="output24"  onkeyup="calc();" size="15"><br>
+			
+			<label><strong class="product4">1.75l   Maaza:</strong><input type="text" id="loadout9" value="" placeholder="Loadout" size="8"> <input type="text" id="returned9" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output27]" id="output27"  onkeyup="calc();" size="15"><br>
+
+			<label><strong class="product5">TP 150ml:</strong><input type="text" id="loadout10" value="" placeholder="Loadout" size="8"> <input type="text" id="returned10" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output30]" id="output30"  onkeyup="calc();" size="15">	<br>		
+			
+			<label><strong class="product5">TP 125ml:</strong><input type="text" id="loadout11" value="" placeholder="Loadout" size="8"> <input type="text" id="returned11" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output33]" id="output33"  onkeyup="calc();" size="15" > <br>	
+
+			<label><strong class="product6">Can 180ml:</strong><input type="text" id="loadout12" value="" placeholder="Loadout" size="8"> <input type="text" id="returned12" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output36]" id="output36"  onkeyup="calc();" size="15"> <br>
+	
+			<label><strong class="product6">Can 300ml:</strong><input type="text" id="loadout13" value="" placeholder="Loadout" size="8"> <input type="text" id="returned13" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output39]" id="output39"  onkeyup="calc();" size="15"> <br>			
+
+			<label><strong class="product7">KW 1l:</strong><input type="text" id="loadout14" value="" placeholder="Loadout" size="8"> <input type="text" id="returned14" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output42]" id="output42"  onkeyup="calc();" size="15"><input type="button" onclick="myFunction()" value="Add More">
+
+<div id="myDIV">       
+	<label><strong class="quantity"></strong> <input type="text" id="quantity1" placeholder="Quantity" value="" size="8"> <input type="text" id="rate1" placeholder="Rate" value="" size="8"></label> Total: <input type="text" id="total1" onkeyup="calc();"  value="" size="15"> <br>
+	
+<label><strong class="quantity"></strong><input type="text" id="quantity2" placeholder="Quantity" value="" size="8"> <input type="text" id="rate2" placeholder="Rate" value="" size="8"></label> Total: <input type="text" id="total2" onkeyup="calc();"  value="" size="15"> <br>
+	
+<label><strong class="quantity"></strong><input type="text" id="quantity3" placeholder="Quantity" value="" size="8"> <input type="text" id="rate3" placeholder="Rate" value="" size="8"></label> Total: <input type="text" id="total3" onkeyup="calc();"  value="" size="15">
+</div> <br>
+			
+			
+			<label><strong class="product7">KW 2l:</strong><input type="text" id="loadout15" value="" placeholder="Loadout" size="8"> <input type="text" id="returned15" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output45]" id="output45"  onkeyup="calc();" size="15"> <br>
+
+			<label><strong class="product8">KW 500ml:</strong><input type="text" id="loadout16" value="" placeholder="Loadout" size="8"> <input type="text" id="returned16" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output48]" id="output48"  onkeyup="calc();" size="15"> <br>
+
+			<label><strong class="product9">K Soda 750ml:</strong><input type="text" id="loadout17" value="" placeholder="Loadout" size="8"> <input type="text" id="returned17" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output51]" id="output51"  onkeyup="calc();" size="15"> <br>
+			
+			<label><strong class="product10">Can Monster:</strong><input type="text" id="loadout18" value="" placeholder="Loadout" size="8"> <input type="text" id="returned18" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output54]" id="output54"  onkeyup="calc();" size="15"> <br>
+			
+			<label><strong class="product11">Smart Water:</strong><input type="text" id="loadout19" value="" placeholder="Loadout" size="8"> <input type="text" id="returned19" value="" placeholder="Return" size="8">  </label> 
+        Total: <input type="text" name="detail[output57]" id="output57"  onkeyup="calc();" size="15"> <br>	<br>
+	
+			
+	<label><strong class="scheme1">Total Scheme:</strong><input type="text" id="scheme" size="14"></label>	<br>
+	<label><strong class="expense1">Expense:</strong><input type="text"      id="expense" size="14"></label> <br>
+	<label><strong class="due1">Payment Due:</strong><input type="text"  id="due" size="14"></label>	<br>		
+	<label><strong class="deposit1">Cash Deposit:</strong><input type="text" id="deposit" size="14"></label>				
+</div>				
+			
+			 <table>
+				<tr>
+				<th><strong class="grand">Grand Total:</strong> </th>
+					<th> <input type="text" name="detail[finalOutput]" id="finalOutput" onkeyup="sum();" size="12"  /><br> <br></th>
+				</tr>
+      </table>
+						
+			<div class="hell"> 
+	
+				<div class="form-group">
+                    <button  class="btn btn-lg btn-primary mt-3">Submit!</button>
+                </div>
+				
+		<a href="/vehicles">Go Back</a>
+		</div>
+					</article>
+				</section>
+				
+
+	<script>
+			
+		function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+		
+		
+function calc() {   
+	
+	var loadout1 = document.getElementById('loadout1').value || 0;
+	var returned1   = document.getElementById('returned1').value || 0;
+	
+	  loadout1 = loadout1 * 24;
+	  var intValue1 = returned1;
+	  var newOutput ;
+	  returned1 = parseInt(returned1) * 24;
+	  if(intValue1 % 1 != 0){
+		
+	  intValue1 = (intValue1 + "").split(".")[1];
+
+	  newOutput = parseInt(returned1) + parseInt(intValue1);
+	  newOutput = loadout1 - newOutput;
+	  newOutput = newOutput*11.1666667;
+	  document.getElementById('output3').value =(newOutput).toFixed(1) ;
+	  } else{
+	  newOutput = loadout1-returned1;
+	  newOutput = newOutput*11.1666667;
+      document.getElementById('output3').value =(newOutput).toFixed(1) ;	  
+    }
+	
+	var loadout2 = document.getElementById('loadout2').value || 0;
+	var returned2   = document.getElementById('returned2').value || 0;
+	
+	  loadout2 = loadout2 * 24;
+	  var intValue2 = returned2;
+	  var newOutput1 ;
+	  returned2 = parseInt(returned2) * 24;
+	  if(intValue2 % 1 != 0){
+		
+	  intValue2 = (intValue2 + "").split(".")[1];
+
+	  newOutput1 = parseInt(returned2) + parseInt(intValue2);
+	  newOutput1 = loadout2 - newOutput1;
+	  newOutput1 = newOutput1*39.5;
+	  document.getElementById('output6').value =(newOutput1).toFixed(1);
+	  } else{
+	  newOutput1 = loadout2-returned2;
+	  newOutput1 = newOutput1*39.5;
+      document.getElementById('output6').value =(newOutput1).toFixed(1);
+    }
+	
+	var loadout3 = document.getElementById('loadout3').value || 0;
+	var returned3   = document.getElementById('returned3').value || 0;
+	
+	  loadout3 = loadout3 * 12;
+	  var intValue3 = returned3;
+	  var newOutput2 ;
+	  returned3= parseInt(returned3) * 12;
+	  if(intValue3 % 1 != 0){
+		
+	  intValue3 = (intValue3 + "").split(".")[1];
+
+	  newOutput2 = parseInt(returned3) + parseInt(intValue3);
+	  newOutput2 = loadout3 - newOutput2;
+	  newOutput2 = newOutput2*63.3333333;
+	  document.getElementById('output9').value =(newOutput2).toFixed(1);
+	  } else{
+	  newOutput2 = loadout3-returned3;
+	  newOutput2 = newOutput2*63.3333333;
+      document.getElementById('output9').value =(newOutput2).toFixed(1);
+    }
+	
+	var loadout4 = document.getElementById('loadout4').value || 0;
+	var returned4   = document.getElementById('returned4').value || 0;
+	
+	  loadout4 = loadout4 * 9;
+	  var intValue4 = returned4;
+	  var newOutput3 ;
+	  returned4 = parseInt(returned4) * 9;
+	  if(intValue4 % 1 != 0){
+		
+	  intValue4 = (intValue4 + "").split(".")[1];
+
+	  newOutput3 = parseInt(returned4) + parseInt(intValue4);
+	  newOutput3 = loadout4 - newOutput3;
+	  newOutput3 = newOutput3*90.6666667;
+	  document.getElementById('output12').value =(newOutput3).toFixed(1);
+	  } else{
+	  newOutput3 = loadout4-returned4;
+	  newOutput3 = newOutput3*90.6666667;
+      document.getElementById('output12').value =(newOutput3).toFixed(1);
+    }
+	
+	var loadout5 = document.getElementById('loadout5').value || 0;
+	var returned5   = document.getElementById('returned5').value || 0;
+	
+	  loadout5 = loadout5 * 24;
+	  var intValue5 = returned5;
+	  var newOutput4 ;
+	  returned5 = parseInt(returned5) * 28;
+	  if(intValue5 % 1 != 0){
+		
+	  intValue5 = (intValue5 + "").split(".")[1];
+
+	  newOutput4 = parseInt(returned5) + parseInt(intValue5);
+	  newOutput4 = loadout5 - newOutput4;
+	  newOutput4 = newOutput4*18.2142857;
+	  document.getElementById('output15').value =(newOutput4).toFixed(1);
+	  } else{
+	  newOutput4 = loadout5-returned5;
+	  newOutput4 = newOutput4*18.2142857;
+      document.getElementById('output15').value =(newOutput4).toFixed(1);
+    }
+	
+	var loadout6 = document.getElementById('loadout6').value || 0;
+	var returned6   = document.getElementById('returned6').value || 0;
+	
+	  loadout6 = loadout6 * 28;
+	  var intValue6 = returned6;
+	  var newOutput5 ;
+	  returned6 = parseInt(returned6) * 28;
+	  if(intValue6 % 1 != 0){
+		
+	  intValue6 = (intValue6 + "").split(".")[1];
+
+	  newOutput5 = parseInt(returned6) + parseInt(intValue6);
+	  newOutput5 = loadout6 - newOutput5;
+	  newOutput5 = newOutput5*13.3928571;
+	  document.getElementById('output18').value =(newOutput5).toFixed(1);
+	  } else{
+	  newOutput5 = loadout6-returned6;
+	  newOutput5 = newOutput5*13.3928571;
+      document.getElementById('output18').value =(newOutput5).toFixed(1);
+    }
+	
+	var loadout7 = document.getElementById('loadout7').value || 0;
+	var returned7   = document.getElementById('returned7').value || 0;
+	
+	  loadout7 = loadout7 * 24;
+	  var intValue7 = returned7;
+	  var newOutput6 ;
+	  returned7 = parseInt(returned7) * 24;
+	  if(intValue7 % 1 != 0){
+		
+	  intValue7 = (intValue7 + "").split(".")[1];
+
+	  newOutput6 = parseInt(returned7) + parseInt(intValue7);
+	  newOutput6 = loadout7 - newOutput6;
+	  newOutput6 = newOutput6*19;
+	  document.getElementById('output21').value =(newOutput6).toFixed(1);
+	  } else{
+	  newOutput6 = loadout7-returned7;
+	  newOutput6 = newOutput6*19;
+      document.getElementById('output21').value =(newOutput6).toFixed(1);
+    }
+	
+	var loadout8    = document.getElementById('loadout8').value || 0;
+	var returned8   = document.getElementById('returned8').value || 0;
+	
+	  loadout8 = loadout8 * 24;
+	  var intValue8 = returned8;
+	  var newOutput7 ;
+	  returned8 = parseInt(returned8) * 24;
+	  if(intValue8 % 1 != 0){
+		
+	  intValue8 = (intValue8 + "").split(".")[1];
+
+	  newOutput7 = parseInt(returned8) + parseInt(intValue8);
+	  newOutput7 = loadout8 - newOutput7;
+	  newOutput7 = newOutput7*31.8333333;
+	  document.getElementById('output24').value =(newOutput7).toFixed(1);
+	  } else{
+	  newOutput7 = loadout8-returned8;
+	  newOutput7 = newOutput7*31.8333333;
+      document.getElementById('output24').value =(newOutput7).toFixed(1);
+    }
+	
+	var loadout9    = document.getElementById('loadout9').value || 0;
+	var returned9   = document.getElementById('returned9').value || 0;
+	
+	  loadout9 = loadout9 * 6;
+	  var intValue9 = returned9;
+	  var newOutput8 ;
+	  returned9 = parseInt(returned9) * 6;
+	  if(intValue9 % 1 != 0){
+		
+	  intValue9 = (intValue9 + "").split(".")[1];
+
+	  newOutput8 = parseInt(returned9) + parseInt(intValue9);
+	  newOutput8 = loadout9 - newOutput8;
+	  newOutput8 = newOutput8*85;
+	  document.getElementById('output27').value =(newOutput8).toFixed(1);
+	  } else{
+	  newOutput8 = loadout9-returned9;
+	  newOutput8 = newOutput8*85;
+      document.getElementById('output27').value =(newOutput8).toFixed(1);
+    }
+	
+      var loadout10    = document.getElementById('loadout10').value || 0;
+	  var returned10   = document.getElementById('returned10').value || 0;
+	
+	  loadout10 = loadout10 * 40;
+	  var intValue10 = returned10;
+	  var newOutput9 ;
+	  returned10 = parseInt(returned10) * 40;
+	  if(intValue10 % 1 != 0){
+		
+	  intValue10 = (intValue10 + "").split(".")[1];
+
+	  newOutput9 = parseInt(returned10) + parseInt(intValue10);
+	  newOutput9 = loadout10 - newOutput9;
+	  newOutput9 = newOutput9*8.75;
+	  document.getElementById('output30').value =(newOutput9).toFixed(1);
+	  } else{
+	  newOutput9 = loadout10-returned10;
+	  newOutput9 = newOutput9*8.75;
+      document.getElementById('output30').value =(newOutput9).toFixed(1);
+    }
+	
+	  var loadout11    = document.getElementById('loadout11').value || 0;
+	  var returned11   = document.getElementById('returned11').value || 0;
+	
+	  loadout11 = loadout11 * 27;
+	  var intValue11 = returned11;
+	  var newOutput10 ;
+	  returned11 = parseInt(returned11) * 27;
+	  if(intValue11 % 1 != 0){
+		
+	  intValue11 = (intValue11 + "").split(".")[1];
+
+	  newOutput10 = parseInt(returned11) + parseInt(intValue11);
+	  newOutput10 = loadout11 - newOutput10;
+	  newOutput10 = newOutput10*8.7037037;
+	  document.getElementById('output33').value =(newOutput10).toFixed(1);
+	  } else{
+	  newOutput10 = loadout11-returned11;
+	  newOutput10 = newOutput10*8.7037037;
+      document.getElementById('output33').value =(newOutput10).toFixed(1);
+    }
+	
+	  var loadout12    = document.getElementById('loadout12').value || 0;
+	  var returned12   = document.getElementById('returned12').value || 0;
+	
+	  loadout12 = loadout12 * 36;
+	  var intValue12 = returned12;
+	  var newOutput11 ;
+	  returned12 = parseInt(returned12) * 36;
+	  if(intValue12 % 1 != 0){
+		
+	  intValue12 = (intValue12 + "").split(".")[1];
+
+	  newOutput11 = parseInt(returned12) + parseInt(intValue12);
+	  newOutput11 = loadout12 - newOutput11;
+	  newOutput11 = newOutput11*23.0555556;
+	  document.getElementById('output36').value =(newOutput11).toFixed(1);
+	  } else{
+	  newOutput11 = loadout12-returned12;
+	  newOutput11 = newOutput11*23.0555556;
+      document.getElementById('output36').value =(newOutput11).toFixed(1);
+    }
+	
+	  var loadout13    = document.getElementById('loadout13').value || 0;
+	  var returned13   = document.getElementById('returned13').value || 0;
+	
+	  loadout13 = loadout13 * 24;
+	  var intValue13 = returned13;
+	  var newOutput12 ;
+	  returned13 = parseInt(returned13) * 24;
+	  if(intValue13 % 1 != 0){
+		
+	  intValue13 = (intValue13 + "").split(".")[1];
+
+	  newOutput12 = parseInt(returned13) + parseInt(intValue13);
+	  newOutput12 = loadout13 - newOutput12;
+	  newOutput12 = newOutput12* 32.625;
+	  document.getElementById('output39').value =(newOutput12).toFixed(1);
+	  } else{
+	  newOutput12 = loadout13-returned13;
+	  newOutput12 = newOutput12* 32.625;
+      document.getElementById('output39').value =(newOutput12).toFixed(1);
+    }
+	
+      var loadout14    = document.getElementById('loadout14').value || 0;
+	  var returned14   = document.getElementById('returned14').value || 0;
+	
+	  loadout14 = loadout14 * 15;
+	  var intValue14 = returned14;
+	  var newOutput13 ;
+	  returned14 = parseInt(returned14) * 15;
+	  if(intValue14 % 1 != 0){
+		
+	  intValue14 = (intValue14 + "").split(".")[1];
+
+	  newOutput13 = parseInt(returned14) + parseInt(intValue14);
+	  newOutput13 = loadout14 - newOutput13;
+	  newOutput13 = newOutput13* 11.6666667;
+	  document.getElementById('output42').value =(newOutput13).toFixed(1);
+	  } else{
+	  newOutput13 = loadout14-returned14;
+	  newOutput13 = newOutput13* 11.6666667;
+      document.getElementById('output42').value =(newOutput13).toFixed(1);
+    }
+	// sub input for KW 1l
+	var quantity1 = document.getElementById('quantity1').value  || 0;
+	var rate1     = document.getElementById('rate1').value  || 0;	
+	document.getElementById('total1').value = parseInt(quantity1) * parseInt(rate1);
+	
+	var quantity2 = document.getElementById('quantity2').value  || 0;
+	var rate2      = document.getElementById('rate2').value  || 0;	
+	document.getElementById('total2').value = parseInt(quantity2) * parseInt(rate2);
+	
+	var quantity3 = document.getElementById('quantity3').value  || 0;
+	var rate3     = document.getElementById('rate3').value  || 0;	
+	document.getElementById('total3').value = parseInt(quantity3) * parseInt(rate3);
+      	
+	
+	
+	
+	  var loadout15    = document.getElementById('loadout15').value || 0;
+	  var returned15   = document.getElementById('returned15').value || 0;
+	
+	  loadout15 = loadout15 * 9;
+	  var intValue15 = returned15;
+	  var newOutput14 ;
+	  returned15 = parseInt(returned15) * 9;
+	  if(intValue15 % 1 != 0){
+		
+	  intValue15 = (intValue15 + "").split(".")[1];
+
+	  newOutput14 = parseInt(returned15) + parseInt(intValue15);
+	  newOutput14 = loadout15 - newOutput14;
+	  newOutput14 = newOutput14* 21.6666667;
+	  document.getElementById('output45').value =(newOutput14).toFixed(1);
+	  } else{
+	  newOutput14 = loadout15-returned15;
+	  newOutput14 = newOutput14* 21.6666667;
+      document.getElementById('output45').value =(newOutput14).toFixed(1);
+    }
+	
+	  var loadout16    = document.getElementById('loadout16').value  || 0;
+	  var returned16   = document.getElementById('returned16').value || 0;
+	
+	  loadout16 = loadout16 * 24;
+	  var intValue16 = returned16;
+	  var newOutput15 ;
+	  returned16 = parseInt(returned16) * 24;
+	  if(intValue16 % 1 != 0){
+		
+	  intValue16 = (intValue16 + "").split(".")[1];
+
+	  newOutput15 = parseInt(returned16) + parseInt(intValue16);
+	  newOutput15 = loadout16 - newOutput15;
+	  newOutput15 = newOutput15* 8.125;
+	  document.getElementById('output48').value =(newOutput15).toFixed(1);
+	  } else{
+	  newOutput15 = loadout16-returned16;
+	  newOutput15 = newOutput15* 8.125;
+      document.getElementById('output48').value =(newOutput15).toFixed(1);
+    }
+	
+	  var loadout17    = document.getElementById('loadout17').value || 0;
+	  var returned17   = document.getElementById('returned17').value || 0;
+	
+	  loadout17 = loadout17 * 24;
+	  var intValue17 = returned17;
+	  var newOutput16 ;
+	  returned17 = parseInt(returned17) * 24;
+	  if(intValue17 % 1 != 0){
+		
+	  intValue17 = (intValue17 + "").split(".")[1];
+
+	  newOutput16 = parseInt(returned17) + parseInt(intValue17);
+	  newOutput16 = loadout17 - newOutput16;
+	  newOutput16 = newOutput16* 17.5833333;
+	  document.getElementById('output51').value =(newOutput16).toFixed(1);
+	  } else{
+	  newOutput16 = loadout17-returned17;
+	  newOutput16 = newOutput16* 17.5833333;
+      document.getElementById('output51').value =(newOutput16).toFixed(1);
+    }
+	
+	  var loadout18    = document.getElementById('loadout18').value || 0;
+	  var returned18   = document.getElementById('returned18').value || 0;
+	
+	  loadout18 = loadout18 * 24;
+	  var intValue18 = returned18;
+	  var newOutput17 ;
+	  returned18 = parseInt(returned18) * 24;
+	  if(intValue18 % 1 != 0){
+		
+	  intValue18 = (intValue18 + "").split(".")[1];
+
+	  newOutput17 = parseInt(returned18) + parseInt(intValue18);
+	  newOutput17 = loadout18 - newOutput17;
+	  newOutput17 = newOutput17* 80.75;
+	  document.getElementById('output54').value =(newOutput17).toFixed(1);
+	  } else{
+	  newOutput17 = loadout18-returned18;
+	  newOutput17 = newOutput17* 80.75;
+      document.getElementById('output54').value =(newOutput17).toFixed(1);
+    }
+	
+	  var loadout19    = document.getElementById('loadout19').value || 0;
+	  var returned19   = document.getElementById('returned19').value || 0;
+	
+	  loadout19 = loadout19 * 12;
+	  var intValue19 = returned19;
+	  var newOutput18 ;
+	  returned19 = parseInt(returned19) * 12;
+	  if(intValue19 % 1 != 0){
+		
+	  intValue19 = (intValue19 + "").split(".")[1];
+
+	  newOutput18 = parseInt(returned19) + parseInt(intValue19);
+	  newOutput18 = loadout19 - newOutput18;
+	  newOutput18 = newOutput18* 34.5;
+	  document.getElementById('output57').value =(newOutput18).toFixed(1);
+	  } else{
+	  newOutput18 = loadout19-returned19;
+	  newOutput18 = newOutput18* 34.5;
+      document.getElementById('output57').value =(newOutput18).toFixed(1);
+    }
+	
+  }
+     
+ function sum()
+{
+	  
+  var g = document.getElementById('finalOutput').value || 0;
+  
+  var h = document.getElementById('output3').value || 0;
+  var i = document.getElementById('output6').value || 0; 
+  var j = document.getElementById('output9').value || 0;
+  var k = document.getElementById('output12').value || 0; 
+  var l = document.getElementById('output15').value || 0;
+  var m = document.getElementById('output18').value || 0;	
+  var n = document.getElementById('output21').value || 0;
+  var o = document.getElementById('output24').value || 0;
+  var p = document.getElementById('output27').value || 0;
+  var q = document.getElementById('output30').value || 0;
+  var r = document.getElementById('output33').value || 0;
+  var s = document.getElementById('output36').value || 0;
+  var t = document.getElementById('output39').value || 0;
+  var u = document.getElementById('output42').value || 0;
+  var v = document.getElementById('output45').value || 0;
+  var w = document.getElementById('output48').value || 0;
+  var x = document.getElementById('output51').value || 0;
+  var y = document.getElementById('output54').value || 0;	
+  var z = document.getElementById('output57').value || 0;	
+	
+  var a = 	document.getElementById('total1').value || 0;
+  var b = 	document.getElementById('total2').value || 0;
+  var c = 	document.getElementById('total3').value || 0;	
+  var d = 	document.getElementById('deposit').value || 0;	
+  	
+  var expense = document.getElementById('expense').value || 0;
+  var due = document.getElementById('due').value || 0;	
+  var scheme = document.getElementById('scheme').value || 0;	
+ 	
+		
+ var  outputArray = [ h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y,z,a,b,c,d];
+ 
+	 var ini;
+	 var sumAdd = 0;
+	 for(ini = 0; ini <= 22; ini++) {
+		
+	 	sumAdd = sumAdd +  parseInt(outputArray[ini]);
+	 }  
+  var subExpense =  parseInt(expense) + parseInt(due) + parseInt(scheme); 
+  document.getElementById('finalOutput').value= sumAdd -  subExpense;	
+}       
+	  </script>							
+	
+				</body>

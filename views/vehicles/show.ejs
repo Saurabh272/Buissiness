@@ -1,0 +1,76 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead"><em>Coca Cola</em></p>
+			<div class="list-group">
+				<li class="list-group-item">Daily Worksheet</li>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= vehicle.image %>">
+				<div class="caption-full">
+					<h4 class="pull-right">$9.00/day</h4>
+					<h1><a><%= vehicle.name %></a></h1>
+					<p><%= vehicle.description %></p>
+					<p>
+						<em>Submitted By <%= vehicle.author.username %></em>
+					</p>
+					<% if(currentUser && currentUser.isAdmin) { %>
+					<a class="btn btn-xs btn-warning" href="/vehicles/<%= vehicle._id %>/edit">Edit</a>
+					<form id="delete-form" action="/vehicles/<%= vehicle._id %>?_method=DELETE" method="POST">
+						<button class="btn btn-xs
+									   btn-danger">Delete</button>
+					</form>
+					<% } %>
+				</div>
+			</div>
+			<div class="well">
+				<div class="text-right">
+					<a class="btn btn-success" href= "/vehicles/<%= vehicle._id %>/details/new">Add New Detail</a>
+				</div>
+		     		<% vehicle.details.forEach(function(detail){ %>
+				    <div class="row">
+						<div class="col-md-12">
+							<strong><em>Submitted By<%= detail.author.username %></em></strong>
+							<span class="pull-right"><%= detail.created.toDateString() %></span>
+							<p>
+	                 	      <%= detail.text %>	
+													<h1>Full Detail</h1> <br>
+	 <h4>
+		Name Of Driver:<%= detail.driver %>  
+	</h4>
+						
+	 <h4>
+		Name Of Account:<%= detail.account %>  
+	</h4> 
+	 <h4>
+		Place of delivery:<%= detail.place %>  
+	</h4>
+	 <h4>
+		Total Kilometeres:<%= detail.km %>  
+	</h4>
+	<h4>
+		Total Loadout:<%= detail.loadout %>
+	</h4>
+  
+	 <a href="/details/<%= detail._id %>" class="btn btn-primary" >More Info</a>
+     	<% if(currentUser && detail.author.id.equals(currentUser._id)){ %>
+		<form style="display: inline" class="pull-right" action="/vehicles/<%=vehicle._id%>/details/<%=detail._id%>?_method=DELETE" method="POST">
+	    <a href="/vehicles/<%=vehicle._id%>/details/<%=detail._id%>/edit" class="btn btn-xs btn-info">EDIT</a>
+		</form>
+		<% } %>
+						</div>
+				    </div>
+               <% }); %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<%- include("../partials/footer") %>

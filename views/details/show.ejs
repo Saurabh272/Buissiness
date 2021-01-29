@@ -1,0 +1,148 @@
+<%- include('../partials/header'); -%>
+
+
+<style>
+      table {
+      border-collapse: collapse;
+      width: 100%;
+      }
+	table td {
+  font-size: 18px;
+}
+	 
+      tr:nth-child(even) {background-color: #e6e6e6;}
+      tr:nth-child(odd) {background-color: #d9d9d9;}
+	
+	 tr:hover {background-color:#cdcdcd;}
+	
+	  
+	
+    </style>
+
+<div class="container">
+ 
+                
+              
+                    <h4 class="pull-right"><%= detail.created.toDateString() %></h4>
+	
+					
+					<h1>Daily Worksheet</h1> <br>
+	 <h4>
+		Name Of Driver:<%= detail.driver %>  
+	</h4> 
+	 <h4>
+		Today's Route:<%= detail.place %>  
+	</h4>
+	<h4>
+		Total Loadout:<%= detail.loadout %>
+	</h4>
+    <table class="table table-striped">
+      <tr>
+        <td>200ml All Pack</td>
+        
+        <td>Rs.<%= detail.output3%></td>
+      </tr>
+      <tr>
+        <td>750ml All Pack</td>
+       
+        <td>Rs.<%= detail.output6%></td>
+      </tr>
+		<tr>
+		<td>1.25ml All Pack</td>
+		<td>Rs.<%=detail.output9%></td>
+			</tr>
+      <tr>
+        <td>250ml ₹20</td>
+       
+        <td>Rs.<%= detail.output12%></td>
+      </tr>
+      <tr>
+        <td>250ml ₹15</td>
+        
+        <td>Rs.<%= detail.output15%></td>
+      </tr>
+		 <tr>
+        <td>250ml Maaza</td>
+        
+        <td>Rs.<%= detail.output18%></td>
+      </tr>
+		 <tr>
+        <td>600ml Maaza</td>
+        
+        <td>Rs.<%= detail.output21%></td>
+      </tr>
+		 <tr>
+        <td>1.75l Maaza</td>
+        
+        <td>Rs.<%= detail.output24%></td>
+      </tr>
+		 <tr>
+        <td>TP 150/125ml</td>
+        
+        <td>Rs.<%= detail.output27%></td>
+      </tr>
+		 <tr>
+        <td>Can 180ml</td>
+        
+        <td>Rs.<%= detail.output30%></td>
+      </tr>
+		 <tr>
+        <td><strong>Can 300ml</strong></td>
+			  <td>Rs.<%= detail.output33%></td>
+      </tr> 
+	
+		 <tr>
+        <td><strong>KW 1l</strong></td>
+        
+        <td>Rs.<%= detail.output36%></td>
+      </tr>
+	
+		 <tr>
+        <td><strong>KW 2l</strong></td>
+        
+        <td>Rs.<%= detail.output39%></td>
+      </tr>
+		
+		<tr>
+        <td><strong>750ml Soda</strong></td>
+        
+        <td>Rs.<%= detail.output42%></td>
+      </tr>
+		
+		<tr>
+        <td><strong>Monster 300ml</strong></td>
+        
+        <td>Rs.<%= detail.output45%></td>
+      </tr>
+		
+		<tr>
+        <td><strong>Smart Water 750ml</strong></td>
+        
+        <td>Rs.<%= detail.output48%></td>
+      </tr>
+		
+		<tr>
+        <td><strong>Smart Water 750ml</strong></td>
+        
+        <td>Rs.<%= detail.output51%></td>
+      </tr>
+		
+		<tr>
+        <td><strong>Smart Water 750ml</strong></td>
+        
+        <td>Rs.<%= detail.output54%></td>
+      </tr>
+		
+		<tr>
+        <td><strong>Grand Total</strong></td>
+        
+        <td>Rs.<%= detail.finalOutput%></td>
+      </tr>
+	</table>
+                            
+                            <span class="pull-right"><h4>Submitted By:
+								</h4><strong><%= detail.author.username %></strong></span>
+                            
+	
+            
+      
